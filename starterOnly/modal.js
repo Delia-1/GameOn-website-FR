@@ -12,6 +12,11 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
+
+const modalContent = document.querySelector(".content")
+const modalCloseBtn = document.querySelector(".close")
+
+// ANIMATIONS
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -21,3 +26,17 @@ function launchModal() {
 }
 
 
+// close modal form
+modalCloseBtn.addEventListener("click", () => {
+  // add the class in charge og the Close anim
+  modalContent.classList.add("content--close");
+
+  // waits for the anim ends
+  modalContent.addEventListener("animationend", () => {
+    modalbg.style.display = "none";
+
+    // clean anim
+    modalContent.classList.remove("content--close");
+
+  }, { once: true }); // clean e-listener to avoid side effect if re-open
+});

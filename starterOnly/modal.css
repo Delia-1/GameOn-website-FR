@@ -99,7 +99,7 @@ img {
     display: block;
     margin-top: -15px;
   }
-} 
+}
 
 main {
   font-size: 130%;
@@ -183,6 +183,11 @@ main {
   padding-top: 10px;
 }
 
+  .content--close {
+    animation: modalclose var(--modal-duration) ease forwards ;
+
+  }
+
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
@@ -226,7 +231,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
+/*
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
@@ -527,3 +532,12 @@ footer {
   }
 }
 
+@keyframes modalclose {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+}
