@@ -17,7 +17,7 @@
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
-      
+
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
@@ -57,35 +57,36 @@
           <span class="close"></span>
           <div class="modal-body">
             <form
+              class="form"
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmitSiJijenlevetout="return validate();"
+              novalidate
             >
               <div
-                class="formData">
-                <label>Prénom</label><br>
+                class="formData" data-error="Merci de renseigner au moins 2 charactères" data-error-visible="false">
+                <label for="first">Prénom</label><br>
                 <input
-                  class="text-control"
+                  class="text-control min-two"
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>Nom</label><br>
+                class="formData" data-error="Merci de renseigner au moins 2 charactères" data-error-visible="false">
+                <label for="last">Nom</label><br>
                 <input
-                  class="text-control"
+                  class="text-control min-two"
                   type="text"
                   id="last"
                   name="last"
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>E-mail</label><br>
+                class="formData" data-error="Veuillez vérifier la validité de l'adresse mail" data-error-visible="false">
+                <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
                   type="email"
@@ -95,7 +96,7 @@
               </div>
               <div
                 class="formData">
-                <label>Date de naissance</label><br>
+                <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
@@ -105,12 +106,12 @@
               </div>
               <div
                 class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData formData--checkbox">
                 <input
                   class="checkbox-input"
                   type="radio"

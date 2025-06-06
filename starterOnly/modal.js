@@ -37,6 +37,40 @@ modalCloseBtn.addEventListener("click", () => {
 
     // clean anim
     modalContent.classList.remove("content--close");
+    // Peut etre aussi vider le form? 
 
   }, { once: true }); // clean e-listener to avoid side effect if re-open
 });
+
+// Main validation function
+  const form = document.querySelector(".form");
+  form.addEventListener("submit", e => {
+    validateMinTwo(e);
+    validateEmail(e);
+
+  });
+// first and last's validation, 2 chars min
+  const validateMinTwo = (e) => {
+     const inputMinTwo = document.querySelectorAll(".min-two")
+     inputMinTwo.forEach(input => {
+      if (input.value.length < 2) {
+        e.preventDefault();
+        input.parentElement.setAttribute("data-error-visible", "true");
+      } else {
+        input.parentElement.setAttribute("data-error-visible", "false");
+      }
+    })
+  }
+
+  // email validation based on regex
+  const validateEmail =(e) => {
+    const email = document.getElementById("email");
+    const mailRegex = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+");
+    if (!mailRegex.test(email.value)) {
+      e.preventDefault();
+      email.parentElement.setAttribute("data-error-visible", "true")
+      console.log("enter here")
+    } else {
+      email.parentElement.setAttribute("data-error-visible", "false");
+    }
+  }
