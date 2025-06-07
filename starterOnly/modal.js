@@ -37,7 +37,7 @@ modalCloseBtn.addEventListener("click", () => {
 
     // clean anim
     modalContent.classList.remove("content--close");
-    // Peut etre aussi vider le form? 
+    // Peut etre aussi vider le form?
 
   }, { once: true }); // clean e-listener to avoid side effect if re-open
 });
@@ -45,8 +45,10 @@ modalCloseBtn.addEventListener("click", () => {
 // Main validation function
   const form = document.querySelector(".form");
   form.addEventListener("submit", e => {
+    e.preventDefault();
     validateMinTwo(e);
     validateEmail(e);
+    validateQuantityInsert()
 
   });
 // first and last's validation, 2 chars min
@@ -54,7 +56,7 @@ modalCloseBtn.addEventListener("click", () => {
      const inputMinTwo = document.querySelectorAll(".min-two")
      inputMinTwo.forEach(input => {
       if (input.value.length < 2) {
-        e.preventDefault();
+        // e.preventDefault();
         input.parentElement.setAttribute("data-error-visible", "true");
       } else {
         input.parentElement.setAttribute("data-error-visible", "false");
@@ -67,10 +69,28 @@ modalCloseBtn.addEventListener("click", () => {
     const email = document.getElementById("email");
     const mailRegex = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+");
     if (!mailRegex.test(email.value)) {
-      e.preventDefault();
+      // e.preventDefault();
       email.parentElement.setAttribute("data-error-visible", "true")
-      console.log("enter here")
     } else {
       email.parentElement.setAttribute("data-error-visible", "false");
     }
   }
+
+  //validation for the quantity, based on regex
+  const validateQuantityInsert = () => {
+    const quantityString = document.getElementById("quantity");
+    const quantityVal = quantityString.value;
+    const quantity = Number(quantityVal);
+    const numberRegex = new RegExp("^\\d+$");
+  //check if the value is a number (edgeCase for e, -, -4554) and if quantity < 99
+    if(!numberRegex.test(quantityVal) || (quantity > 99) ) {
+      quantityString.parentElement.setAttribute("data-error-visible", "true");
+    } else {
+      quantityString.parentElement.setAttribute("data-error-visible", "false")
+    }
+  }
+
+
+
+  // Es ce que je peux enlever des fonctions le prevent defaut et e mettre sur la principale?
+//   --> semble oui, a voir apres la completion
