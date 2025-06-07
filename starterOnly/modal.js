@@ -49,6 +49,7 @@ modalCloseBtn.addEventListener("click", () => {
     validateMinTwo(e);
     validateEmail(e);
     validateQuantityInsert()
+    validateRadioSelected()
 
   });
 // first and last's validation, 2 chars min
@@ -87,6 +88,22 @@ modalCloseBtn.addEventListener("click", () => {
       quantityString.parentElement.setAttribute("data-error-visible", "true");
     } else {
       quantityString.parentElement.setAttribute("data-error-visible", "false")
+    }
+  };
+
+  // Faire en sorte qu'un radio soit selctionné
+
+  const validateRadioSelected = () => {
+    const radioGroup = document.querySelectorAll('input[name="location"]')
+    const parentRadioGroup = document.querySelector('.formData--checkbox')
+    let count = 0;
+    radioGroup.forEach(btn=> {
+      if (btn.checked) count +=1;
+    })
+    if (count !== 1) {
+      parentRadioGroup.setAttribute("data-error-visible", "true")
+    } else {
+      parentRadioGroup.setAttribute("data-error-visible", "false")
     }
   }
 
