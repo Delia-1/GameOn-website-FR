@@ -139,6 +139,26 @@ main {
 
 /* Modal form */
 
+/* Code added to handle the validation message layout */
+
+.hidden-Container {
+  display: block;
+}
+.validation-message {
+  height: 96vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0 66px;
+}
+
+.message {
+  font-family: var(--font-default);
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+}
+
 .button {
   background: #fe142f;
   margin-top: 0.5em;

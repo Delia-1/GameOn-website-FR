@@ -68,7 +68,6 @@ modalCloseBtn.addEventListener("click", () => {
       return false
     } else {
       email.parentElement.setAttribute("data-error-visible", "false");
-      console.log("coucou")
       return true;
     }
   }
@@ -126,13 +125,15 @@ modalCloseBtn.addEventListener("click", () => {
       boxToCheck.parentElement.setAttribute("data-error-visible", "true")
       return false
     } else {
-      boxToCheck.parentElement.setAttribute("data-error-visible", "true")
+      boxToCheck.parentElement.setAttribute("data-error-visible", "false")
       return true;
     }
   }
 
   // Main validation function
   const form = document.querySelector(".form");
+  const hiddenContaier = document.querySelector(".hidden-container");
+  const validationMessage = document.querySelector(".validation-message");
   form.addEventListener("submit", e => {
     // bloc the submitting
     e.preventDefault();
@@ -151,7 +152,12 @@ modalCloseBtn.addEventListener("click", () => {
       e.preventDefault();
       console.log("oops i did i again")
     } else {
-      alert("GOOOOOOOOOOO!!!!!!!" )
+
+      // faire une fonction qui gere ce qui le declenchement du message
+      // ++changer la value du bouton 
+      hiddenContaier.style.display = "none";
+      validationMessage.style.display = "flex";
+
     }
 
   });
