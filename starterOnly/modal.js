@@ -37,32 +37,27 @@ modalCloseBtn.addEventListener("click", () => {
 
     // clean anim
     modalContent.classList.remove("content--close");
-    // Peut etre aussi vider le form?
+    // Peut etre aussi vider le form? non pas dans les spec en theorie
 
   }, { once: true }); // clean e-listener to avoid side effect if re-open
 });
 
-// Main validation function
-  const form = document.querySelector(".form");
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    validateMinTwo(e);
-    validateEmail(e);
-    validateQuantityInsert()
-    validateRadioSelected()
 
-  });
+
 // first and last's validation, 2 chars min
-  const validateMinTwo = (e) => {
+  const validateMinTwo = () => {
      const inputMinTwo = document.querySelectorAll(".min-two")
+     let isValid = true;
      inputMinTwo.forEach(input => {
       if (input.value.length < 2) {
         // e.preventDefault();
         input.parentElement.setAttribute("data-error-visible", "true");
+        isValid = false
       } else {
         input.parentElement.setAttribute("data-error-visible", "false");
       }
     })
+    return isValid
   }
 
   // email validation based on regex
@@ -72,8 +67,11 @@ modalCloseBtn.addEventListener("click", () => {
     if (!mailRegex.test(email.value)) {
       // e.preventDefault();
       email.parentElement.setAttribute("data-error-visible", "true")
+      return false
     } else {
       email.parentElement.setAttribute("data-error-visible", "false");
+      console.log("coucou")
+      return true;
     }
   }
 
@@ -86,8 +84,10 @@ modalCloseBtn.addEventListener("click", () => {
   //check if the value is a number (edgeCase for e, -, -4554) and if quantity < 99
     if(!numberRegex.test(quantityVal) || (quantity > 99) ) {
       quantityString.parentElement.setAttribute("data-error-visible", "true");
+      return false
     } else {
       quantityString.parentElement.setAttribute("data-error-visible", "false")
+      return true;
     }
   };
 
@@ -102,10 +102,59 @@ modalCloseBtn.addEventListener("click", () => {
     })
     if (count !== 1) {
       parentRadioGroup.setAttribute("data-error-visible", "true")
+      return false
     } else {
       parentRadioGroup.setAttribute("data-error-visible", "false")
+      return true;
     }
   }
+
+  const validateBirthdate = () => {
+    const birthdate = document.getElementById("birthdate");
+    console.log("birthdate", birthdate.value)
+    if (birthdate.value === "") {
+      birthdate.parentElement.setAttribute("data-error-visible", "true");
+      return false
+    } else {
+      birthdate.parentElement.setAttribute("data-error-visible", "false");
+      return true;
+    }
+  }
+
+  const validateCondition = () => {
+    const boxToCheck = document.getElementById("checkbox1");
+    if (!boxToCheck.checked) {
+      boxToCheck.parentElement.setAttribute("data-error-visible", "true")
+      return false
+    } else {
+      boxToCheck.parentElement.setAttribute("data-error-visible", "true")
+      return true;
+    }
+  }
+
+  // Main validation function
+  const form = document.querySelector(".form");
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const minTwo = validateMinTwo();
+    const email = validateEmail();
+    const birthdate = validateBirthdate();
+    const quantityInsert = validateQuantityInsert();
+    const radioSelected = validateRadioSelected();
+    const condition = validateCondition();
+
+      const isValid = minTwo && email && birthdate && quantityInsert && radioSelected && condition;
+
+    if (!isValid) {
+      e.preventDefault;
+      console.log("oops i did i again")
+    } else {
+      alert("GOOOOOOOOOOO!!!!!!!" )
+    }
+
+  });
+
 
 
 
