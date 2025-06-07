@@ -42,7 +42,7 @@ modalCloseBtn.addEventListener("click", () => {
   }, { once: true }); // clean e-listener to avoid side effect if re-open
 });
 
-
+// FORM VALIDATION
 
 // first and last's validation, 2 chars min
   const validateMinTwo = () => {
@@ -50,7 +50,6 @@ modalCloseBtn.addEventListener("click", () => {
      let isValid = true;
      inputMinTwo.forEach(input => {
       if (input.value.length < 2) {
-        // e.preventDefault();
         input.parentElement.setAttribute("data-error-visible", "true");
         isValid = false
       } else {
@@ -65,7 +64,6 @@ modalCloseBtn.addEventListener("click", () => {
     const email = document.getElementById("email");
     const mailRegex = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+");
     if (!mailRegex.test(email.value)) {
-      // e.preventDefault();
       email.parentElement.setAttribute("data-error-visible", "true")
       return false
     } else {
@@ -91,12 +89,12 @@ modalCloseBtn.addEventListener("click", () => {
     }
   };
 
-  // Faire en sorte qu'un radio soit selctionné
-
+  // check if there is a radio checked
   const validateRadioSelected = () => {
     const radioGroup = document.querySelectorAll('input[name="location"]')
     const parentRadioGroup = document.querySelector('.formData--checkbox')
     let count = 0;
+    // maping over the radio buttons, to check if one is selected
     radioGroup.forEach(btn=> {
       if (btn.checked) count +=1;
     })
@@ -109,9 +107,9 @@ modalCloseBtn.addEventListener("click", () => {
     }
   }
 
+      // check is the value of birthdate is empty
   const validateBirthdate = () => {
     const birthdate = document.getElementById("birthdate");
-    console.log("birthdate", birthdate.value)
     if (birthdate.value === "") {
       birthdate.parentElement.setAttribute("data-error-visible", "true");
       return false
@@ -121,6 +119,7 @@ modalCloseBtn.addEventListener("click", () => {
     }
   }
 
+  // Check is the terms are checked
   const validateCondition = () => {
     const boxToCheck = document.getElementById("checkbox1");
     if (!boxToCheck.checked) {
@@ -135,8 +134,9 @@ modalCloseBtn.addEventListener("click", () => {
   // Main validation function
   const form = document.querySelector(".form");
   form.addEventListener("submit", e => {
+    // bloc the submitting
     e.preventDefault();
-
+    // define all field validation functions
     const minTwo = validateMinTwo();
     const email = validateEmail();
     const birthdate = validateBirthdate();
@@ -144,19 +144,14 @@ modalCloseBtn.addEventListener("click", () => {
     const radioSelected = validateRadioSelected();
     const condition = validateCondition();
 
-      const isValid = minTwo && email && birthdate && quantityInsert && radioSelected && condition;
+    // all the expressions must return true
+    const isValid = minTwo && email && birthdate && quantityInsert && radioSelected && condition;
 
     if (!isValid) {
-      e.preventDefault;
+      e.preventDefault();
       console.log("oops i did i again")
     } else {
       alert("GOOOOOOOOOOO!!!!!!!" )
     }
 
   });
-
-
-
-
-  // Es ce que je peux enlever des fonctions le prevent defaut et e mettre sur la principale?
-//   --> semble oui, a voir apres la completion
