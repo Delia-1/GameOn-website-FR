@@ -15,6 +15,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 
 const modalContent = document.querySelector(".content")
 const modalCloseBtn = document.querySelector(".close")
+const btnSubmit = document.querySelector(".btn-submit");
 
 // ANIMATIONS
 // button opens modal
@@ -25,22 +26,28 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
+// Reusable function to close modal
+function closeModal(triggerBtn) {
+
+    // listen for a change on each of the btn
+  triggerBtn.addEventListener("click", () => {
+    // add the class in charge of the Close anim
+    modalContent.classList.add("content--close");
+
+    // waits for the anim ends
+    modalContent.addEventListener("animationend", () => {
+      modalbg.style.display = "none";
+
+      // clean anim
+      modalContent.classList.remove("content--close");
+
+    }, { once: true }); // clean e-listener to avoid side effect if re-open
+  });
+}
 
 // close modal form
-modalCloseBtn.addEventListener("click", () => {
-  // add the class in charge og the Close anim
-  modalContent.classList.add("content--close");
+closeModal(modalCloseBtn)
 
-  // waits for the anim ends
-  modalContent.addEventListener("animationend", () => {
-    modalbg.style.display = "none";
-
-    // clean anim
-    modalContent.classList.remove("content--close");
-    // Peut etre aussi vider le form? non pas dans les spec en theorie
-
-  }, { once: true }); // clean e-listener to avoid side effect if re-open
-});
 
 // FORM VALIDATION
 
@@ -74,16 +81,16 @@ modalCloseBtn.addEventListener("click", () => {
 
   //validation for the quantity, based on regex
   const validateQuantityInsert = () => {
-    const quantityString = document.getElementById("quantity");
-    const quantityVal = quantityString.value;
+    const quantityInput = document.getElementById("quantity");
+    const quantityVal = quantityInput.value;
     const quantity = Number(quantityVal);
     const numberRegex = new RegExp("^\\d+$");
   //check if the value is a number (edgeCase for e, -, -4554) and if quantity < 99
     if(!numberRegex.test(quantityVal) || (quantity > 99) ) {
-      quantityString.parentElement.setAttribute("data-error-visible", "true");
+      quantityInput.parentElement.setAttribute("data-error-visible", "true");
       return false
     } else {
-      quantityString.parentElement.setAttribute("data-error-visible", "false")
+      quantityInput.parentElement.setAttribute("data-error-visible", "false")
       return true;
     }
   };
@@ -151,15 +158,18 @@ modalCloseBtn.addEventListener("click", () => {
     if (!isValid) {
       e.preventDefault();
     } else {
-      const btnSubmit = document.querySelector(".btn-submit");
-      // faire une fonction qui gere le declenchement du message
-      // ++changer la value du bouton
-      hiddenContaier.style.display = "none";
-      validationMessage.style.display = "flex"
-      btnSubmit.value = "fermer";
-
+      displayMessage()
+      closeModal(btnSubmit)
     }
 
   });
 
-  // faire une fonction aussi quand le bouton a une value de fermet avec un addEventListener pour fermer la modale (meme comportempent qu'avec la croix)
+
+  function displayMessage() {
+    // hide the form
+    hiddenContaier.style.display = "none";
+    // display the validation message
+    validationMessage.style.display = "flex"
+    // change the btn text
+    btnSubmit.value = "fermer";
+  }
