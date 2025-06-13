@@ -149,7 +149,8 @@ main {
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 0 66px;
+  padding: 0 82px;
+  margin-bottom: 34px;
 }
 
 .message {
@@ -157,6 +158,7 @@ main {
   font-size: 36px;
   font-weight: 400;
   text-align: center;
+  line-height: 46px;
 }
 
 .button {
@@ -170,7 +172,7 @@ main {
 }
 
 .button:hover {
-  background: #3876ac;
+  /* background: #3876ac; */
 }
 
 .smFont {
@@ -192,7 +194,7 @@ main {
 .content {
   margin: 5% auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 536px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;

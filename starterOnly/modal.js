@@ -9,15 +9,15 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
+// selectorAll because 2 buttons that display in base of the media query
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
 
 
 const modalContent = document.querySelector(".content")
 const modalCloseBtn = document.querySelector(".close")
 
 // ANIMATIONS
-// launch modal event
+// button opens modal
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
@@ -150,14 +150,16 @@ modalCloseBtn.addEventListener("click", () => {
 
     if (!isValid) {
       e.preventDefault();
-      console.log("oops i did i again")
     } else {
-
-      // faire une fonction qui gere ce qui le declenchement du message
-      // ++changer la value du bouton 
+      const btnSubmit = document.querySelector(".btn-submit");
+      // faire une fonction qui gere le declenchement du message
+      // ++changer la value du bouton
       hiddenContaier.style.display = "none";
-      validationMessage.style.display = "flex";
+      validationMessage.style.display = "flex"
+      btnSubmit.value = "fermer";
 
     }
 
   });
+
+  // faire une fonction aussi quand le bouton a une value de fermet avec un addEventListener pour fermer la modale (meme comportempent qu'avec la croix)
