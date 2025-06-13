@@ -1,9 +1,9 @@
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  var tabsWrapper = document.getElementById("myTopnav");
+  if (tabsWrapper.className === "topnav") {
+    tabsWrapper.className += " responsive";
   } else {
-    x.className = "topnav";
+    tabsWrapper.className = "topnav";
   }
 }
 
