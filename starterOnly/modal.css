@@ -2,12 +2,42 @@
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
+  --font-roboto: "Roboto"
 }
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('DM_Sans/DMSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalclose {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+}
+
 /* Landing Page */
 
 body {
@@ -37,7 +67,10 @@ img {
     float: left;
 }
 .main-navbar {
-    float: right;
+  /* border: solid 1px #ff0000;
+  border-radius: 15px; */
+  margin-top: 2vh;
+  float: right;
 }
 .topnav a {
   float: left;
@@ -51,17 +84,21 @@ img {
   font-family: Roboto, sans-serif;
 }
 
+.topnav.responsive a:first-child {
+  margin-top: 50px;
+}
+
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
 }
 
-.topnav a.active {
+/* .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
-}
+} */
 
 .topnav .icon {
   display: none;
@@ -72,6 +109,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
+    color: #ff0000;
   }
 }
 
@@ -80,8 +118,9 @@ img {
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 2vh;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;
@@ -96,7 +135,31 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    /* margin-top: -15px; */
+  }
+    .topnav a.icon:hover {
+    color: #ffffff;
+  }
+
+  .gameOnLogo {
+  width: 32vw;
+  height: 2.4vh;
+  margin-top: 32px;
+  padding-left: 12px;
+}
+  .topnav {
+    padding-left: 4px;
+    margin-top: 5%;
+  }
+
+  .fa.fa-bars {
+
+    /* padding-top: 35px; */
+    /* color: #ff0000; */
+
+    .fa.fa-bars:active {
+      transform: rotate(90deg) 0.5s linear forwards;
+    }
   }
 }
 
@@ -133,7 +196,7 @@ main {
 .footer {
   margin: 20px;
   padding: 10px;
-  font-family: var(--font-slab);
+  font-family: var(--font-roboto);
 }
 
 /* Modal form */
@@ -489,6 +552,7 @@ input[data-error]::after {
   display: block;
   padding: 0;
 }
+
 .copyrights {
   color: #fe142f;
   padding: 0;
@@ -505,6 +569,28 @@ footer {
   margin: 0 20px;
 }
 @media screen and (max-width: 800px) {
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalclose {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -543,22 +629,46 @@ footer {
   }
 }
 
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
+ @media screen and (max-width: 540px) {
+   .hero-headline {
+    font-size: 40px;
+    font-weight: 500;
   }
-  to {
-    opacity: 1;
+  .hero-text {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 22px 0px;
+    width: 80vw;
   }
-}
+  main {
+    margin-bottom: 18px;
+  }
 
-@keyframes modalclose {
-  from {
-    opacity: 1;
+  .hero-content {
+    margin-top: -14px;
+    padding: 0;
   }
-  to {
-    transform: translateY(-150px);
-    opacity: 0;
+
+  .main-navbar a:nth-last-of-type(2) {
+    border-bottom: 3px solid red;
   }
-}
+  .hero-section {
+    min-height: 50vh;
+  }
+
+
+  .hero-section .btn-signup {
+    font-size: 0.8rem;
+    margin: 28px 31px 0px 13px;
+    padding: 8px 31px;
+    justify-self: center;
+    font-weight: 400;
+    letter-spacing: 0.9px;
+  }
+
+  .copyrights {
+    margin: 0;
+    font-size: 10px;
+    font-family: var(--font-roboto);
+  }
+ }
