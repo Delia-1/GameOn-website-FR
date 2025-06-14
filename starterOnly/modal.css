@@ -267,7 +267,7 @@ main {
   margin: 15px auto;
 }
 
-label {
+label, .label {
   font-family: var(--font-default);
   font-size: 17px;
   font-weight: normal;
@@ -560,25 +560,6 @@ footer {
 }
 @media screen and (max-width: 800px) {
 
-  @keyframes modalopen {
-    from {
-      opacity: 0;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes modalclose {
-    from {
-      opacity: 1;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 0;
-    }
-  }
 
 
   .hero-section {
@@ -626,6 +607,27 @@ footer {
 }
 
 @media screen and (max-width: 540px) {
+
+
+  @keyframes modalopen {
+    from {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes modalclose {
+    from {
+      opacity: 1;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 0;
+    }
+  }
   .hero-text {
     font-size: 13px;
     font-weight: 400;
@@ -667,3 +669,130 @@ footer {
   }
 }
 
+
+
+
+/* MODALE STYLE FOR SMALL SCREENS */
+
+
+@media screen and (max-width: 540px) {
+
+  /* .modal-body {
+    padding: 0 8%;
+  } */
+
+  label, .label {
+      font-family: var(--font-default);
+      font-size: 14px;
+      display: inline-block;
+      margin-bottom: 4px;
+      white-space: nowrap;
+  }
+  .checkbox-label, .checkbox2-label  {
+    bottom: -4px;
+    left: -8px;
+    font-size: 12px;
+    margin-left: 30px;
+  }
+
+.formData {
+
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 17px;
+}
+
+.formData[data-error]:after {
+    content: attr(data-error);
+    font-size: 8px;
+    color: #e54858;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 7px;
+    text-align: left;
+    line-height: 0.3;
+    /* opacity: 0; */
+    transition: 0.3s;
+}
+
+main {
+    font-size: 100%
+
+}
+
+.formData .checkbox-icon {
+  width: 18px;
+  height: 18px;
+  left: -25px;
+}
+
+  .btn-submit, .btn-signup {
+
+}
+
+.modal-body {
+    padding: 15px 8%;
+    margin: 5px auto;
+}
+
+.btn-submit, .btn-signup {
+    background: #fe142f;
+    display: block;
+    margin: 0 auto;
+    border-radius: 7px;
+    font-size: 1rem;
+    padding: 7px 35px;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+}
+
+  /* .content {
+    margin: 4% auto;
+    width: 100%;
+    max-width: 536px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    background: #232323;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    padding-top: 10px;
+} */
+
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 60px;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: #fff;
+}
+
+/* .bground {
+  left: 0;
+  max-height: 90%;
+
+  background-color: rgba(26, 39, 156, 0);
+
+} */
+
+ body.modal-open .topnav {
+    margin-top: 0px;
+    margin-bottom: 8px;
+  }
+
+ body.modal-open .gameOnLogo {
+        width: 38vw;
+        height: 3.4vh;
+        margin-top: 28px;
+}
+ body.modal-open .main-navbar {
+  z-index: 400;
+}
+/* je dois maintenant implementer le fait que quans le modale est ouverte dans le petit responsive il y ait une nav différente es ce qu eje la copie colle a la modale dans ce contexte ou es ce qu eje la modifie avec un after dans ce contexte ? */
+}

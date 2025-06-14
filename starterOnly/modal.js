@@ -24,6 +24,8 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  // advert the body that the modal is open usefull for the header on small screens when the modal is open
+  document.body.classList.add("modal-open");
 }
 
 // Reusable function to close modal
@@ -40,6 +42,7 @@ function closeModal(triggerBtn) {
 
       // clean anim
       modalContent.classList.remove("content--close");
+      document.body.classList.remove("modal-open");
 
     }, { once: true }); // clean e-listener to avoid side effect if re-open
   });
@@ -173,3 +176,11 @@ closeModal(modalCloseBtn)
     // change the btn text
     btnSubmit.value = "fermer";
   }
+
+
+  // methode to get rid of the "GameOn" text in the quantity label
+
+const quantityLabel = document.querySelector('label[for="quantity"]')
+ window.innerWidth < 415 ? quantityLabel.textContent = "À combien de tournois avez-vous déjà participé ?" : quantityLabel.textContent ;
+
+
