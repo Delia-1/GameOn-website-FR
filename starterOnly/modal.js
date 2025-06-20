@@ -16,6 +16,8 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const modalContent = document.querySelector(".content")
 const modalCloseBtn = document.querySelector(".close")
 const btnSubmit = document.querySelector(".btn-submit");
+const form = document.querySelector(".form");
+
 
 // ANIMATIONS
 // button opens modal
@@ -35,6 +37,7 @@ function closeModal(triggerBtn) {
   triggerBtn.addEventListener("click", () => {
     // add the class in charge of the Close anim
     modalContent.classList.add("content--close");
+    form.reset();
 
     // waits for the anim ends
     modalContent.addEventListener("animationend", () => {
@@ -141,7 +144,7 @@ closeModal(modalCloseBtn)
   }
 
   // Main validation function
-  const form = document.querySelector(".form");
+  // const form = document.querySelector(".form");
   const hiddenContaier = document.querySelector(".hidden-container");
   const validationMessage = document.querySelector(".validation-message");
   form.addEventListener("submit", e => {
@@ -182,5 +185,3 @@ closeModal(modalCloseBtn)
 
 const quantityLabel = document.querySelector('label[for="quantity"]')
  window.innerWidth < 415 ? quantityLabel.textContent = "À combien de tournois avez-vous déjà participé ?" : quantityLabel.textContent ;
-
-
