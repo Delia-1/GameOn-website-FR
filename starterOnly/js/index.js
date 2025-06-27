@@ -9,7 +9,7 @@ import { displayMessage } from "./displayMessage.js";
 const iconBurgerMenu = document.querySelector(".icon");
 const modalbg = document.querySelector(".bground");
 // selectorAll because 2 buttons that display in base of the media query
-const modalBtn = document.querySelectorAll(".signup-btn");
+const modalBtn = document.querySelectorAll(".btn--signup");
 const modalContent = document.querySelector(".content")
 const modalCloseBtn = document.querySelector(".close")
 const btnSubmit = document.querySelector(".btn-submit");
