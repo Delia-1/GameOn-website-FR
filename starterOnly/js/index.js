@@ -9,7 +9,7 @@ import { displayMessage } from "./displayMessage.js";
 const iconBurgerMenu = document.querySelector(".icon");
 const modalbg = document.querySelector(".bground");
 // selectorAll because 2 buttons that display in base of the media query
-const modalBtn = document.querySelectorAll(".modal-btn");
+const modalBtn = document.querySelectorAll(".signup-btn");
 const modalContent = document.querySelector(".content")
 const modalCloseBtn = document.querySelector(".close")
 const btnSubmit = document.querySelector(".btn-submit");
@@ -17,7 +17,7 @@ const form = document.querySelector(".form");
 const hiddenContaier = document.querySelector(".hidden-container");
 const validationMessage = document.querySelector(".validation-message");
 
-// Listen for the click on the burger menu 
+// Listen for the click on the burger menu
 iconBurgerMenu.addEventListener("click", editNav);
 
 // button opens modal (usefull for launchModal() and closeModal() )

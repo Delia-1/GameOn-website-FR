@@ -53,6 +53,8 @@ img {
   padding-right: 1rem;
 }
 
+/* HEADER  */
+
 .topnav {
   overflow: hidden;
   margin: 4%;
@@ -60,10 +62,14 @@ img {
 .header-logo {
   float: left;
 }
+
+/* logo */
 .main-navbar {
   margin-top: 16px;
   float: right;
 }
+
+/* fa fa-bars */
 .topnav a {
   float: left;
   display: block;
@@ -87,6 +93,8 @@ img {
 }
 
 
+/* MAIN */
+
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -99,7 +107,7 @@ main {
   text-align: justify;
 }
 
-.modal-btn {
+.signup-btn {
   font-size: 145%;
   background: #fe142f;
   display: flex;
@@ -111,7 +119,7 @@ main {
   cursor: pointer;
 }
 
-.modal-btn:hover {
+.signup-btn:hover {
   background: #3876ac;
 }
 
@@ -121,13 +129,205 @@ footer {
   font-family: var(--font-roboto);
 }
 
-/* Modal form */
+/* MODAL FORM*/
 
-/* Code added to handle the validation message layout */
+
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
+
+.content {
+  margin: 5% auto;
+  width: 100%;
+  max-width: 536px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+}
+
+
+/* corner closing cross */
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+/* Allow to create 2 independant lines (thin rectangles), then rotated */
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+
+/* added dynamically with js function closeModal() */
+.content--close {
+  animation: modalclose var(--modal-duration) ease forwards;
+}
+
+.modal-body {
+  padding: 15px 8%;
+  margin: 15px auto;
+}
 
 .hidden-Container {
   display: block;
 }
+
+/* Style and content for dynamically injected error message when formData is visible */
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: #e54858;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: left;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* Make the error messages visible  */
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
+/* Make the input red when the data insert is incorrect  */
+.formData[data-error-visible="true"] .text-control {
+  border: 2px solid #e54858;
+}
+
+
+label, .label {
+  font-family: var(--font-default);
+  font-size: 17px;
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 11px;
+}
+
+input {
+  padding: 8px;
+  border: 0.8px solid #ccc;
+  outline: none;
+}
+
+.text-control {
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 20px;
+  height: 48px;
+}
+/* contest location label  */
+.checkbox-label,
+.checkbox2-label {
+  position: relative;
+  margin-left: 36px;
+  font-size: 12px;
+  font-weight: normal;
+  font-family: var(--font-roboto);
+}
+/* contest location checkbox empty */
+.checkbox-label .checkbox-icon,
+.checkbox2-label .checkbox-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #279e7a;
+  border-radius: 50%;
+  text-indent: 29px;
+  white-space: nowrap;
+  position: absolute;
+  left: -30px;
+  top: -1px;
+  transition: 0.3s;
+}
+
+/* contest location checkbox validated */
+
+.checkbox-label .checkbox-icon::after,
+.checkbox2-label .checkbox-icon::after {
+  content: "";
+  width: 13px;
+  height: 13px;
+  background-color: #279e7a;
+  border-radius: 50%;
+  text-indent: 29px;
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  opacity: 0;
+}
+/* Hide the HTML default checkbox-input */
+.checkbox-input {
+  display: none;
+}
+
+/* Show the style of location and CGU checkboxes when selected */
+.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
+.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+  opacity: 1;
+}
+/* Styles the CGU checkboxes  */
+.checkbox2-label .checkbox-icon {
+  border-radius: 4px;
+  border: 0;
+  background: #c4c4c4;
+}
+/* +Style when selected  */
+.checkbox-input:checked + .checkbox2-label .checkbox-icon {
+  background: #279e7a;
+}
+/* +Inside check icon  */
+.checkbox2-label .checkbox-icon::after {
+  width: 7px;
+  height: 4px;
+  border-radius: 2px;
+  background: transparent;
+  border: 2px solid transparent;
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+  transform: rotate(-55deg);
+  left: 21%;
+  top: 19%;
+}
+
+/* form validation message */
+
 .validation-message {
   height: 30em;
   display: none;
@@ -145,6 +345,7 @@ footer {
   line-height: 46px;
 }
 
+/* shared style for signup and submit buttons  */
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -159,191 +360,19 @@ footer {
   background: #3876ac;
 }
 
-.smFont {
-  font-size: 16px;
-}
-
-.bground {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
-}
-
-.content {
-  margin: 5% auto;
-  width: 100%;
-  max-width: 536px;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
-  background: #232323;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  padding-top: 10px;
-}
-
-.content--close {
-  animation: modalclose var(--modal-duration) ease forwards;
-}
-
-.modal-body {
-  padding: 15px 8%;
-  margin: 15px auto;
-}
-
-label, .label {
-  font-family: var(--font-default);
-  font-size: 17px;
-  font-weight: normal;
-  display: inline-block;
-  margin-bottom: 11px;
-}
-input {
-  padding: 8px;
-  border: 0.8px solid #ccc;
-  outline: none;
-}
-.text-control {
-  margin: 0;
-  padding: 8px;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 20px;
-  height: 48px;
-}
-.formData[data-error]::after {
-  content: attr(data-error);
-  font-size: 0.4em;
-  color: #e54858;
-  display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: left;
-  line-height: 0.3;
-  opacity: 0;
-  transition: 0.3s;
-}
-.formData[data-error-visible="true"]::after {
-  opacity: 1;
-}
-.formData[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
-}
 /*
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
-.checkbox-label,
-.checkbox2-label {
-  position: relative;
-  margin-left: 36px;
-  font-size: 12px;
-  font-weight: normal;
-  font-family: var(--font-roboto);
-}
-.checkbox-label .checkbox-icon,
-.checkbox2-label .checkbox-icon {
-  display: block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #279e7a;
-  border-radius: 50%;
-  text-indent: 29px;
-  white-space: nowrap;
-  position: absolute;
-  left: -30px;
-  top: -1px;
-  transition: 0.3s;
-}
-.checkbox-label .checkbox-icon::after,
-.checkbox2-label .checkbox-icon::after {
-  content: "";
-  width: 13px;
-  height: 13px;
-  background-color: #279e7a;
-  border-radius: 50%;
-  text-indent: 29px;
-  white-space: nowrap;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.3s;
-  opacity: 0;
-}
-.checkbox-input {
-  display: none;
-}
-.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
-.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
-  opacity: 1;
-}
-.checkbox-input:checked + .checkbox2-label .checkbox-icon {
-  background: #279e7a;
-}
-.checkbox2-label .checkbox-icon {
-  border-radius: 4px;
-  border: 0;
-  background: #c4c4c4;
-}
-.checkbox2-label .checkbox-icon::after {
-  width: 7px;
-  height: 4px;
-  border-radius: 2px;
-  background: transparent;
-  border: 2px solid transparent;
-  border-bottom-color: #fff;
-  border-left-color: #fff;
-  transform: rotate(-55deg);
-  left: 21%;
-  top: 19%;
-}
-.close {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  width: 32px;
-  height: 32px;
-  opacity: 1;
-  cursor: pointer;
-  transform: scale(0.7);
-}
-.close:before,
-.close:after {
-  position: absolute;
-  left: 15px;
-  content: " ";
-  height: 33px;
-  width: 3px;
-  background-color: #fff;
-}
-.close:before {
-  transform: rotate(45deg);
-}
-.close:after {
-  transform: rotate(-45deg);
-}
-.btn-submit,
-.btn-signup {
-  background: #fe142f;
+.btn-signup, */
+.btn-submit {
   display: block;
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
   color: #fff;
-  cursor: pointer;
   border: 0;
 }
+
+
 
 .hero-section {
   min-height: 93vh;
@@ -361,7 +390,6 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  /* min-width: 424px; */
 }
 .hero-content::after {
   content: "";
@@ -392,12 +420,14 @@ input[data-error]::after {
   text-transform: capitalize;
   font-size: 1.3rem;
   padding: 15px 23px;
-  margin: 0;
   margin-top: 59px;
+  margin: 0;
 }
+
 .hero-img {
   grid-column: span 8;
 }
+
 .hero-img img {
   width: 100%;
   height: 100%;
@@ -413,6 +443,8 @@ input[data-error]::after {
   margin: 60px 0 30px;
   font-weight: bolder;
 }
+
+/* hide the responsive btn-signup  */
 .hero-section > .btn-signup {
   display: none;
 }

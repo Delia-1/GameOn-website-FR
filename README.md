@@ -7,7 +7,7 @@
 
 # 🕹️ GameOn – Formulaire d'inscription à un tournoi esport
 
-Projet réalisé dans le cadre de la formation **Développeur Front-End** chez OpenClassrooms.
+Projet réalisé dans le cadre de la formation **Developpeur d'applications JavaScript React** chez OpenClassrooms.
 GameOn est une entreprise fictive qui souhaite proposer un formulaire d'inscription à ses tournois via son site web.
 Ce projet est le premier du parcours à introduire JavaScript, avec une attention particulière sur la validation côté client et l'interactivité de l'interface, tout en prenant en compte le responsive.
 
@@ -93,7 +93,7 @@ git clone https://github.com/Delia-1/GameOn-website-FR.git
 
   - `index.js` → fichier principal d’**orchestration globale** : déclaration des constantes, appel des fonctions importées, gestion des événements utilisateur
 
-- Le **label dynamique** (adapté à la taille de l’écran) est resté dans `index.js` car il est unique.
+- Le **quantityLabel dynamique** (adapté à la taille de l’écran) est resté dans `index.js` car il est unique.
   _S’il devait se généraliser, cette logique serait déplacée dans un fichier dédié, ex. : `responsiveText.js`._
 
 - Une fonction `resetForm()` est utilisée pour **réinitialiser les champs** et **retirer les messages d’erreur** (`data-error-visible`) à chaque fermeture de la modale, assurant un affichage toujours propre à la réouverture.
