@@ -65,6 +65,29 @@ Ce projet est le premier du parcours à introduire JavaScript, avec une attentio
 ```
 
 ---
+## 🧪 Tests manuels
+
+- **Responsive design**
+  Testé sur plusieurs tailles d’écran (desktop, tablette, mobile) grâce aux *media queries*, pour garantir une expérience fluide et cohérente même sur les petits écrans mobiles.
+
+- **Validation du formulaire**
+  Saisie de données valides et invalides dans chaque champ pour tester :
+  - L’apparition des messages d’erreur personnalisés (`data-error-visible`)
+  - La gestion des champs obligatoires et des formats incorrects
+  - Le comportement du bouton de validation
+
+- **Navigation & accessibilité**
+  - Ouverture et fermeture fluide de la modale
+  - Navigation au clavier (tab, enter, esc)
+  - Vérification des labels, attributs ARIA et textes alternatifs
+
+- **Compatibilité navigateurs**
+  Fonctionnement testé sur les principaux navigateurs modernes :
+  - Chrome
+  - Firefox
+
+---
+
 
 ## 🚀 Lancer le projet en local
 

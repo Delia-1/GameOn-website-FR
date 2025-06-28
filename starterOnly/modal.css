@@ -42,6 +42,7 @@ body {
   font-size: 18px;
   max-width: 1300px;
   margin: 0 auto;
+  min-height: 108vh;
 }
 
 p {
@@ -56,14 +57,21 @@ img {
 /* HEADER  */
 
 .topnav {
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 4%;
 }
 .header-logo {
   float: left;
 }
 
-/* logo */
+  .gameOnLogo {
+    /* width: 8.25rem;
+    height: 1.2rem; */
+    /* padding-left: 12px; */
+    object-fit: cover;
+  }
+
+
 .main-navbar {
   margin-top: 16px;
   float: right;
@@ -84,6 +92,7 @@ img {
 
 .topnav a:hover {
   background-color: #ff0000;
+  text-decoration: underline;
   color: #ffffff;
   border-radius: 15px;
 }
@@ -358,7 +367,8 @@ input {
 
 /* HERO PART  */
 .hero-section {
-  min-height: 93vh;
+  /* min-height: 93vh; */
+  /* max-height: 657px; */
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -404,7 +414,7 @@ input {
 .btn--signup {
   font-size: 1.3rem;
   background: #fe142f;
-  display: flex; /* ou block selon le layout que tu préfères */
+  display: block; /* ou block selon le layout que tu préfères */
   margin: 0 auto;
   margin-top: 59px;
   padding: 0.75rem 2.5rem;
@@ -442,15 +452,15 @@ input {
   color: #fe142f;
   padding: 0;
   font-size: 1rem;
-  margin: 60px 0 30px;
+  margin: 0 0 30px;
   font-weight: bolder;
 }
 
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 800px) {
 
   .hero-section {
-    display: block;
+    display: flex;
     box-shadow: unset;
     background: #232323;
     color: #fff;
@@ -464,30 +474,36 @@ input {
     content: unset;
   }
   .hero-headline {
-    font-size: 4rem;
+    font-size: 3rem;
     white-space: normal;
   }
 
   .hero-text {
-    width: unset;
-    font-size: 1.5rem;
+    width: 32vw;
+    font-size: 1.25rem;
   }
-  .btn--desktop {
-    display: none;
-  }
+
   .btn--mobile {
-    display: flex;
-    margin: 32px auto 10px;
-    padding: 12px 35px;
+    display: none;
+    /* margin: 32px auto 10px;
+    padding: 12px 35px; */
   }
 
   .hero-img img {
-    border-radius: 10px;
-    margin-top: 40px;
+        border-radius: 10px;
+        margin-top: 40px;
+        object-position: -255px 0;
+        /* transform: translateY(-46px); */
+
   }
 
+  footer {
+    padding: 0;
+  }
+
+
   .copyrights {
-    margin-top: 50px;
+    margin-top: 0px;
     text-align: center;
   }
 }
@@ -538,6 +554,7 @@ input {
 @media screen and (max-width: 540px) {
 
   body {
+    min-height: unset;
     max-height: 736px
   };
 
@@ -563,6 +580,7 @@ input {
   }
 
   body.modal-open .topnav {
+  margin: 0;
   margin-top: 0px;
   position: fixed;
   top: 0;
@@ -571,14 +589,11 @@ input {
   z-index: 1000;
   }
 
-  .topnav.responsive a:first-child {
-  margin-top: 0;
-}
 
 
   .gameOnLogo {
     width: 8.25rem;
-    height: 1.2rem;
+
     margin-top: 34px;
     padding-left: 12px;
   }
@@ -601,25 +616,26 @@ input {
   }
 
   main {
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     /* font-size: 100% */
   }
 
 footer {
   padding: 0;
   margin: 0;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 
 
 
 .bground {
+  height: 100%;
   display: none;
   position: fixed;
   z-index: 1;
   left: 0;
   top: 60px;
-  height: 100%;
+  /* height: calc(100% - 60px); */
   width: 100%;
   overflow: auto;
   background-color: #fff;
@@ -703,6 +719,10 @@ footer {
     padding-top: 3px;
   }
 
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+  }
 
 .hero-headline {
   font-size: 41px;
@@ -732,12 +752,21 @@ footer {
   }
 
   .hero-img img {
-   width: 99%;
+        height: 94%;
+        object-position: 0%;
+        margin-top: 17px;
+  }
+
+  .btn--desktop {
+    display: none
   }
 
   .btn--mobile {
-    margin: 25px 0px 0px 100px;
-    padding: 7px 35px;
+    display: flex;
+    justify-self: center;
+    /* margin: 28px 115px 9px 101px; */
+    margin: 28px auto 9px auto;
+    padding: 7px 32px;
     font-size: 14px;
     border-radius: 10px;
   }
@@ -787,21 +816,25 @@ footer {
 }
 
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 330px) {
 
+  .hero-headline {
+    margin-top: 20px;
+    font-size: 35px;
+  }
 
+  label,
+  .label {
+      font-size: 14px;
+      margin-bottom: 10px;
+      white-space: wrap;
+  }
 
+  .btn-submit {
+    margin-bottom: 40px;
+  }
 
-
-
-/*
- body.modal-open .gameOnLogo {
-        width: 38vw;
-        height: 3.4vh;
-        margin-top: 28px;
-} */
-
-
-
-
+  .copyrights {
+    margin-bottom: 10px;
+  }
 }
