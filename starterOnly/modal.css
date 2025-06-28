@@ -57,17 +57,16 @@ img {
 /* HEADER  */
 
 .topnav {
-  /* overflow: hidden; */
   margin: 4%;
 }
+
 .header-logo {
   float: left;
 }
 
   .gameOnLogo {
-    /* width: 8.25rem;
-    height: 1.2rem; */
-    /* padding-left: 12px; */
+    width: auto;
+    height: auto;
     object-fit: cover;
   }
 
@@ -555,8 +554,8 @@ input {
 
   body {
     min-height: unset;
-    max-height: 736px
-  };
+    max-height: 736px;
+  }
 
 
   @keyframes modalopen {
@@ -589,8 +588,6 @@ input {
   z-index: 1000;
   }
 
-
-
   .gameOnLogo {
     width: 8.25rem;
 
@@ -605,13 +602,13 @@ input {
 
   /* nav-bar style for small screens and modal open  */
   body.modal-open .topnav.responsive .main-navbar {
-  z-index: 400;
-  background-color: white;
-  border-radius: 25px;
-  border-bottom: 3px solid red;
-}
+    z-index: 400;
+    background-color: white;
+    border-radius: 25px;
+    border-bottom: 3px solid red;
+  }
 
-   .main-navbar a:nth-last-of-type(2) {
+  .main-navbar a:nth-last-of-type(2) {
     border-bottom: none;
   }
 
@@ -620,26 +617,25 @@ input {
     /* font-size: 100% */
   }
 
-footer {
-  padding: 0;
-  margin: 0;
-  /* margin-bottom: 16px; */
-}
+  footer {
+    padding: 0;
+    margin: 0;
+    /* margin-bottom: 16px; */
+  }
 
 
 
-.bground {
-  height: 100%;
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 60px;
-  /* height: calc(100% - 60px); */
-  width: 100%;
-  overflow: auto;
-  background-color: #fff;
-}
+  .bground {
+    height: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 60px;
+    width: 100%;
+    overflow: auto;
+    background-color: #fff;
+  }
 
   .close {
     transform: scale(0.6);
@@ -650,65 +646,66 @@ footer {
   .modal-body {
     padding: 18px 7%;
     margin: 5px auto;
-}
+  }
 
 
-/* TO hide the hero section and the footer when the modal is open  */
+  /* TO hide the hero section and the footer when the modal is open  */
   body.modal-open .hero-section,  body.modal-open footer {
-  display: none;
-}
+    display: none;
+  }
 
 
-.formData {
-
+  .formData {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 10px;
-}
-.formData--last{
-  margin-bottom: -10px;
-}
+  }
 
-.formData--checkbox {
-  padding: 0 4px;
-}
+  .formData--last{
+    margin-bottom: -10px;
+  }
 
-.formData[data-error]:after {
-    content: attr(data-error);
-    font-size: 8px;
-    color: #e54858;
-    display: block;
-    margin-top: 6px;
-    margin-bottom: 5px;
-    text-align: left;
-    line-height: 0.3;
-    transition: 0.3s;
-}
+  .formData--checkbox {
+    padding: 0 4px;
+  }
 
-.formData .checkbox-icon {
-  width: 18px;
-  height: 18px;
-  left: -25px;
-}
+  .formData[data-error]:after {
+      content: attr(data-error);
+      font-size: 8px;
+      color: #e54858;
+      display: block;
+      margin-top: 6px;
+      margin-bottom: 5px;
+      text-align: left;
+      line-height: 0.3;
+      transition: 0.3s;
+  }
+
+  .formData .checkbox-icon {
+    width: 18px;
+    height: 18px;
+    left: -25px;
+  }
 
   label,
   .label {
-      font-size: 14px;
-      margin-bottom: 10px;
-      white-space: nowrap;
+    font-size: 14px;
+    margin-bottom: 10px;
+    white-space: nowrap;
   }
+
   .label--noMargin {
     margin: 0;
   }
 
   .text-control {
-  margin: 0;
-  padding: 8px;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 20px;
-  height: 48px;
-}
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 20px;
+    height: 48px;
+  }
 
   .checkbox-label, .checkbox2-label  {
     bottom: -4px;
@@ -724,9 +721,9 @@ footer {
     flex-direction: column;
   }
 
-.hero-headline {
-  font-size: 41px;
-}
+  .hero-headline {
+    font-size: 41px;
+  }
 
 
 
@@ -743,7 +740,6 @@ footer {
     background-color: #ffffff;
     color: #000000;
   }
-
 
   .hero-section {
     min-height: 50vh;
@@ -771,8 +767,6 @@ footer {
     border-radius: 10px;
   }
 
-
-
    .btn-submit{
     background: #fe142f;
     display: block;
@@ -783,13 +777,14 @@ footer {
     color: #fff;
     cursor: pointer;
     border: 0;
-}
+  }
 
   .copyrights {
     margin: 0;
     font-size: 10px;
     font-family: var(--font-roboto);
   }
+
 }
 
 
