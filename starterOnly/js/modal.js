@@ -3,7 +3,7 @@ export function launchModal(modalbg) {
   modalbg.style.display = "block";
   // advert the body that the modal is open usefull for the header on small screens when the modal is open
   document.body.classList.add("modal-open");
-  console.log("je suis actif")
+  // console.log("je suis actif")
 }
 
 // Reusable function to close modal
@@ -18,7 +18,7 @@ export function closeModal(triggerBtn, modalContent, modalbg, form) {
     modalContent.addEventListener("animationend", () => {
       modalbg.style.display = "none";
 
-      // clean anim
+      // clean anim to avoid next opening issues
       modalContent.classList.remove("content--close");
       document.body.classList.remove("modal-open");
 
