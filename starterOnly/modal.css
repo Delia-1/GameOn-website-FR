@@ -321,7 +321,8 @@ input {
 /* form validation message */
 
 .validation-message {
-  height: 30em;
+  /* height: 30em; */
+  height: 23em;
   display: none;
   align-items: center;
   justify-content: center;
@@ -529,15 +530,20 @@ input {
     top: 16px;
   }
 
+
+  .main-navbar {
+    margin-top: 16px;
+    margin-right: 35px;
+  }
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
   }
 
-  .topnav.responsive a:first-child {
+  /* .topnav.responsive a:first-child {
   margin-top: 50px;
-}
+} */
 
   body.modal-open .topnav.responsive .icon {
     top: 16px;
@@ -550,7 +556,7 @@ input {
 
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 525px) {
 
   body {
     min-height: unset;
@@ -580,7 +586,7 @@ input {
 
   body.modal-open .topnav {
   margin: 0;
-  margin-top: 0px;
+  padding: 0 16px;
   position: fixed;
   top: 0;
   left: 0;
@@ -601,12 +607,20 @@ input {
   }
 
   /* nav-bar style for small screens and modal open  */
-  body.modal-open .topnav.responsive .main-navbar {
+  /* body.modal-open .topnav.responsive .main-navbar { */
+
+  .topnav.responsive .main-navbar {
     z-index: 400;
     background-color: white;
     border-radius: 25px;
     border-bottom: 3px solid red;
+    margin-top: 16px;
+    /* margin-right: 30px; */
   }
+/* 
+     .topnav.responsive a:first-child {
+     margin-top: 0;
+  } */
 
   .main-navbar a:nth-last-of-type(2) {
     border-bottom: none;
@@ -626,7 +640,8 @@ input {
 
 
   .bground {
-    height: 100%;
+    /* height: 100%; */
+
     display: none;
     position: fixed;
     z-index: 1;
@@ -636,6 +651,8 @@ input {
     overflow: auto;
     background-color: #fff;
   }
+
+
 
   .close {
     transform: scale(0.6);
@@ -666,9 +683,8 @@ input {
   }
 
   .formData--checkbox {
-    padding: 0 4px;
+    padding: 0 8px 0 0PX;
   }
-
   .formData[data-error]:after {
       content: attr(data-error);
       font-size: 8px;
@@ -709,7 +725,7 @@ input {
 
   .checkbox-label, .checkbox2-label  {
     bottom: -4px;
-    left: -8px;
+    left: -4px;
     font-size: 12px;
     margin-left: 30px;
     font-weight: 400;
@@ -719,10 +735,15 @@ input {
   .hero-section {
     display: flex;
     flex-direction: column;
+    min-height: 50vh;
+    background-color: #ffffff;
+    color: #000000;
+    margin-bottom: 7px;
   }
 
   .hero-headline {
     font-size: 41px;
+    padding-top: 2px;
   }
 
 
@@ -741,11 +762,7 @@ input {
     color: #000000;
   }
 
-  .hero-section {
-    min-height: 50vh;
-    background-color: #ffffff;
-    color: #000000;
-  }
+
 
   .hero-img img {
         height: 94%;
@@ -760,7 +777,6 @@ input {
   .btn--mobile {
     display: flex;
     justify-self: center;
-    /* margin: 28px 115px 9px 101px; */
     margin: 28px auto 9px auto;
     padding: 7px 32px;
     font-size: 14px;
@@ -792,31 +808,16 @@ input {
 
 /* MODALE STYLE FOR SMALL SCREENS */
 
-
-
-@media screen and (max-width: 540px) {
-
-  /* .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-
-  } */
-
-  /* body.modal-open .icon {
-    margin-top: 0;
-  } */
-
-
-}
-
-
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 396px) {
 
   .hero-headline {
     margin-top: 20px;
     font-size: 35px;
   }
+
+   /* .topnav.responsive a:first-child {
+     margin-top: 0;
+  } */
 
   label,
   .label {
@@ -831,5 +832,14 @@ input {
 
   .copyrights {
     margin-bottom: 10px;
+  }
+}
+
+/* To handle vertically small screen  */
+
+@media screen and (max-height: 700px) {
+  .content {
+    max-height: 90vh;       /* prend jusqu'à 90% de l’écran au max */
+    overflow-y: auto;
   }
 }
