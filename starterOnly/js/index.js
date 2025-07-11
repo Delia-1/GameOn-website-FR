@@ -1,4 +1,3 @@
-
 import { launchModal, closeModal } from "./modal.js";
 import { editNav } from "./nav.js";
 import { validateMinTwo, validateEmail, validateQuantityInsert, validateRadioSelected, validateBirthdate,validateCondition } from "./formValidation.js";
